@@ -11,6 +11,7 @@ namespace tutorials
         static void Main(string[] args)
         {
             Console.WriteLine("Hello, Dreamonesys!");
+            Console.WriteLine("This is chapter03 branch. you can find it at github.com.");
         }
     }
 }
