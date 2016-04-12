@@ -49,6 +49,8 @@ namespace tutorials
             sb.AppendLine("5. string 형식에 대해 알아본다.");
             sb.AppendLine("6. 논리(Boolean Type)에 대해 알아본다.");
             sb.AppendLine("7. Object Type 에 대해 알아본다.");
+            sb.AppendLine("8. boxing 과 unboxing 에 대해 알아본다.");
+            sb.AppendLine("9. 형식 변환(Type Conversion)에 대해 알아본다.");
 
             // 선택 메뉴를 표시한다.
             Console.WriteLine(sb.ToString());
@@ -93,6 +95,12 @@ namespace tutorials
                         break;
                     case 7:
                         this.sample7();
+                        break;
+                    case 8:
+                        this.sample8();
+                        break;
+                    case 9:
+                        this.sample9();
                         break;
                     default:
                         break;
@@ -200,6 +208,46 @@ namespace tutorials
             Console.WriteLine(b);
             Console.WriteLine(c);
             Console.WriteLine(d);
+        }
+
+        /// <summary>
+        /// 예제 8. boxing 과 unboxing 에 대해 알아본다.
+        /// </summary>
+        public void sample8()
+        {
+            int a = 123;
+            object b = (object)a; // a에 담긴 값을 박싱하여 힙에 저장한다.
+            int c = (int)b; // b에 담긴 값을 언박싱해서 스택에 저장한다.
+
+            Console.WriteLine(a);
+            Console.WriteLine(b);
+            Console.WriteLine(c);
+
+            double x = 3.1414213;
+            double y = x; // x에 담긴 값을 박싱해서 힙에 저장한다.(형식 변환 연산자 => (object) 를 지정하지 않으면, 암시적으로 object 형식으로 변환)
+            double z = (double)y; // y에 담긴 값을 언박싱해서 스택에 저장한다.
+
+            Console.WriteLine(x);
+            Console.WriteLine(y);
+            Console.WriteLine(z);
+        }
+
+        /// <summary>
+        /// 예제 9. 형식 변환(Type Conversion)에 대해 알아본다.
+        /// </summary>
+        public void sample9()
+        {
+            sbyte a = 127;
+            Console.WriteLine(a);
+
+            int b = (int)a;
+            Console.WriteLine(b);
+
+            int x = 128; // sbyte 의 최대값 127 보다 1 큰수
+            Console.WriteLine(x);
+
+            sbyte y = (sbyte)x; // 오버플로우 발생
+            Console.WriteLine(y); // -128
         }
     }
 }
